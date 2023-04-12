@@ -13,7 +13,7 @@ from pages.tourism_page import Tourism_page
 def test_buy_product_1(set_up):
     options = Options()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    driver = webdriver.WebDriver(executable_path = 'C:\\Users\\PycharmProjects\\resource\\chromedriver.exe', chrome_options=options)
+    driver = webdriver.WebDriver(executable_path = 'C:\\Users\\erosl\\PycharmProjects\\resource\\chromedriver.exe', chrome_options=options)
     print("Start Test 1")
 
     login = Login_page(driver)
@@ -39,7 +39,7 @@ def test_buy_product_1(set_up):
 def test_buy_product_2(set_group, set_up):
     options = Options()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    driver = webdriver.WebDriver(executable_path='C:\\Users\\PycharmProjects\\resource\\chromedriver.exe', chrome_options=options)
+    driver = webdriver.WebDriver(executable_path='C:\\Users\\erosl\\PycharmProjects\\resource\\chromedriver.exe', chrome_options=options)
 
     print("Start Test 2")
 
@@ -65,7 +65,7 @@ def test_buy_product_2(set_group, set_up):
 def test_buy_product_3(set_up):
     options = Options()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    driver = webdriver.WebDriver(executable_path='C:\\Users\\PycharmProjects\\resource\\chromedriver.exe', chrome_options=options)
+    driver = webdriver.WebDriver(executable_path='C:\\Users\\erosl\\PycharmProjects\\resource\\chromedriver.exe', chrome_options=options)
 
     print("Start Test 3")
 
