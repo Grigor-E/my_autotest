@@ -52,6 +52,8 @@ class Finish_page(Base):
         self.get_delete_button().click()
         print("Click delete button")
 
+    # Methods
+
     def ordering(self):
         self.get_current_url()  # метод получения нашего url
         self.assert_url('https://lodki-volga.ru/order/make/')  # метод сравнения url
