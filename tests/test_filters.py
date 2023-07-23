@@ -11,7 +11,7 @@ from pages.rowboats_page import Rowboats_page
 def test_filters_1(set_up):
     options = Options()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    driver = webdriver.WebDriver(executable_path='C:\\Users\\erosl\\PycharmProjects\\resource\\chromedriver.exe', chrome_options=options)
+    driver = webdriver.WebDriver(chrome_options=options)
 
     print("Start Test 1")
 
@@ -32,7 +32,7 @@ def test_filters_1(set_up):
 def test_filters_2(set_group, set_up):
     options = Options()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    driver = webdriver.WebDriver(executable_path='C:\\Users\\erosl\\PycharmProjects\\resource\\chromedriver.exe', chrome_options=options)
+    driver = webdriver.WebDriver(chrome_options=options)
 
     print("Start Test 2")
 
