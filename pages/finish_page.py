@@ -11,28 +11,28 @@ class Finish_page(Base):
 
     # Locators
 
-    street = "//input[@name='street']" # локатор ввода улицы при оформлении заказа
-    house = "//input[@name='house']" # локатор ввода дома при оформлении заказа
-    price_product_one = "//*[@id='order-root']/div/div/div[1]/div[1]/span/div/div[1]/div/div[2]/div[1]/div/div" # локатор цены товара № 1 при оформлении заказа
-    clear_button = "//*[@id='basket-root']/div/div[2]/div[2]/div/a[1]" # локатор кнопки очистки корзины
-    delete_button = "//button[@class='btn btn_primary dg-pull-right']" # локатор кнопки подтверждения удаления содержимого корзины
+    street = "street" # локатор ввода улицы при оформлении заказа
+    house = "house" # локатор ввода дома при оформлении заказа
+    price_product_one = ".product_item_content :nth-child(1) > .price" # локатор цены товара №1 (нумерация в тесте, а не на странице, где выбран товар) при оформлении заказа
+    clear_button = "//*[@class='btn_group']/a[1]" # локатор кнопки очистки корзины
+    delete_button = ".dg-btn-content" # локатор кнопки подтверждения удаления содержимого корзины
 
     # Getters
 
     def get_street(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.street)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.NAME, self.street)))
 
     def get_house(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.house)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.NAME, self.house)))
 
     def get_price_product_one(self):
-        return WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located((By.XPATH, self.price_product_one)))
+        return WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.price_product_one)))
 
     def get_clear_button(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.clear_button)))
 
     def get_delete_button(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.delete_button)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.delete_button)))
 
     # Actions
 
@@ -57,7 +57,7 @@ class Finish_page(Base):
     def ordering(self):
         self.get_current_url()  # метод получения нашего url
         self.assert_url('https://lodki-volga.ru/order/make/')  # метод сравнения url
-        self.assert_word(self.get_price_product_one(), '8 840 ₽') # метод assert word для сравнения цены выбранного товара с ценой при оформлении заказа
+        self.assert_word(self.get_price_product_one(), '1 690 ₽') # метод assert word для сравнения цены выбранного товара с ценой при оформлении заказа
         self.input_street("Пушкина")  # метод заполнения поля улицы
         self.input_house("Колотушкина")  # метод заполнения поля дома
         time.sleep(5)

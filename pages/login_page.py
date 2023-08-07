@@ -12,28 +12,28 @@ class Login_page(Base): # класс потомок класса Base
 
     # Locators
 
-    user_name = "//input[@id='USER_LOGIN']" # локатор поля ввода "Логин или email*"
-    password = "//input[@type='password']" # локатор поля ввода пароля
-    remember = "//div[@class='remember_me checked']" # локатор функции "Запомнить меня на этом устройстве"
-    login_button = "//button[@class='btn btn_big btn_primary']" # локатор кнопки Войти
-    main_word = "//html/body/div[2]/header/div[2]/div/div/div[2]/div/a/div/div[2]/div[1]"
+    user_name = "USER_LOGIN" # локатор поля ввода "Логин или email*"
+    password = "USER_PASSWORD" # локатор поля ввода пароля
+    remember = ".remember_me.checked" # локатор функции "Запомнить меня на этом устройстве"
+    login_button = ".btn_big.btn_primary" # локатор кнопки "Войти"
+    main_word = ".col-dt-1-5 :nth-child(2) > .phone" # локатор номера телефона
 
     # Getters
 
     def get_user_name(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.user_name)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.ID, self.user_name)))
 
     def get_password(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.password)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.ID, self.password)))
 
     def get_remember(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.remember)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.remember)))
 
     def get_login_button(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.login_button)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.login_button)))
 
     def get_main_word(self):
-        return WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located((By.XPATH, self.main_word)))
+        return WebDriverWait(self.driver, 30).until(EC.visibility_of_element_located((By.CSS_SELECTOR, self.main_word)))
 
     # Actions
 
@@ -56,7 +56,7 @@ class Login_page(Base): # класс потомок класса Base
     # Methods
 
     def autorization(self):
-        self.driver.get(self.url) # метод октрытия страницы
+        self.driver.get(self.url) # метод открытия страницы
         self.driver.maximize_window() # метод открытия во весь экран
         self.get_current_url() # метод получения нашего url
         self.input_user_name("УКАЖИТЕ СВОЙ @mail.ru") # метод заполнения поля логина

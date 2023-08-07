@@ -10,28 +10,28 @@ class Main_page(Base):
 
     # Locators
 
-    rowboats = "//*[@id='submenu_section_0']/a/span[3]" # локатор выбора списка гребных лодок
-    motorboats = "//*[@id='submenu_section_1']/a/span[3]" # локатор выбора списка моторных лодок
-    boat_accessories = "//*[@id='submenu_section_2']/a/span[3]" # локатор выбора списка комплектующих для лодок
-    motors = "//*[@id='submenu_section_3']/a/span[3]" # локатор выбора списка моторов
-    tourism = "//*[@id='submenu_section_4']/a/span[3]" # локатор выбора списка товаров для туризма
+    rowboats = ".container :nth-child(1) > .section-tabs__link" # локатор выбора списка гребных лодок
+    motorboats = ".container :nth-child(2) > .section-tabs__link" # локатор выбора списка моторных лодок
+    boat_accessories = ".container :nth-child(3) > .section-tabs__link" # локатор выбора списка комплектующих для лодок
+    motors = ".container :nth-child(5) > .section-tabs__link" # локатор выбора списка моторов
+    # tourism = "//*[@id='submenu_section_4']/a/span[3]" # локатор выбора списка товаров для туризма
 
     # Getters
 
     def get_rowboats(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.rowboats)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.rowboats)))
 
     def get_motorboats(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.motorboats)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.motorboats)))
 
     def get_boat_accessories(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.boat_accessories)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.boat_accessories)))
 
     def get_motors(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.motors)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.motors)))
 
-    def get_tourism(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.tourism)))
+    # def get_tourism(self):
+    #     return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.tourism)))
 
     # Actions
 
@@ -51,9 +51,9 @@ class Main_page(Base):
         self.get_motors().click()
         print("Click select motors")
 
-    def click_tourism(self):
-        self.get_tourism().click()
-        print("Click select tourism")
+    # def click_tourism(self):
+    #     self.get_tourism().click()
+    #     print("Click select tourism")
 
     # Methods
 
@@ -73,6 +73,6 @@ class Main_page(Base):
         self.get_current_url() # метод получения нашего url
         self.click_motors() # метод нажатия кнопки выбора меню "Моторы"
 
-    def select_tourism(self):
-        self.get_current_url() # метод получения нашего url
-        self.click_tourism() # метод нажатия кнопки выбора меню "Туризм"
+    # def select_tourism(self):
+    #     self.get_current_url() # метод получения нашего url
+    #     self.click_tourism() # метод нажатия кнопки выбора меню "Туризм"

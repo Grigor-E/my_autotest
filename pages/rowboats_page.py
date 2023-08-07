@@ -11,6 +11,8 @@ class Rowboats_page(Base):
 
     # Locators
 
+    # ЛОКАТОРЫ ПОДЛЕЖАТ ИЗМЕНЕНИЮ
+
     slider_right = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[1]/div/div[3]/div[1]/div[2]/div/div/div[2]/div[1]" # локатор ползунка правого
     brand = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[2]/div/div[2]/span/i" # локатор выбора бренда
     brand_akva = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[2]/div/div[3]/div[1]/div/div/div[1]/label/span" # локатор выбора бренда "Аква"

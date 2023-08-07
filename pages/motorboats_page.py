@@ -12,16 +12,16 @@ class Motorboats_page(Base):
 
     # Locators
 
-    slider_left = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[1]/div/div[3]/div[1]/div[2]/div/div/div[1]/div[1]" # локатор ползунка левого
-    max_power = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[8]/div/div[2]/span/i" # локатор выбора максимальной мощности двигателя
-    power_forty = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[8]/div/div[3]/div[1]/div/div[2]/div[10]/label/span" # локатор выбора мощности двигателя 40 л.с.
-    show_button = "//*[@id='smart_filter_KZ7kps']/div/form/div[2]/div/div/div/div[2]/button" # локатор кнопки "Показать"
-    short_list = "//*[@id='sort_type']/a[3]"  # выбор показа результата в виде short list icon
+    slider_left = ".vue-slider-horizontal :nth-child(1) > .vue-slider-dot-handle" # локатор ползунка левого
+    max_power = "//*[@class='row']/div[8]" # локатор выбора максимальной мощности двигателя
+    power_forty = "//*[@class='row']/div[8]/div[1]/div[3]/div[1]/div/div[2]/div[9]/label/span" # локатор выбора мощности двигателя 40 л.с.
+    show_button = ".bx-filter-parameters-box-container .btn_primary" # локатор кнопки "Показать"
+    short_list = ".short_list.icon"  # выбор показа результата в виде short list icon
 
     # Getters
 
     def get_slider_left(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.slider_left)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.slider_left)))
 
     def get_max_power(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.max_power)))
@@ -30,10 +30,10 @@ class Motorboats_page(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.power_forty)))
 
     def get_show_button(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.show_button)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.show_button)))
 
     def get_short_list(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.short_list)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.short_list)))
 
     # Actions
 
