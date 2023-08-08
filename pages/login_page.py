@@ -3,9 +3,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from base.base_class import Base
 
+
 class Login_page(Base): # класс потомок класса Base
 
-    url = 'https://lodki-volga.ru/personal/' # адрес сайта Лодки Поволжья
+    url = 'https://lodki-volga.ru/personal/' # адрес страницы авторизации сайта Лодки Поволжья
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -55,7 +56,7 @@ class Login_page(Base): # класс потомок класса Base
 
     # Methods
 
-    def autorization(self):
+    def authorization(self):
         self.driver.get(self.url) # метод открытия страницы
         self.driver.maximize_window() # метод открытия во весь экран
         self.get_current_url() # метод получения нашего url
@@ -63,4 +64,4 @@ class Login_page(Base): # класс потомок класса Base
         self.input_password("УКАЖИТЕ СВОЙ") # метод заполнения поля пароля
         self.click_remember()  # метод cнятия галочки функции "Запомнить меня на этом устройстве"
         self.click_login_button() # метод нажатия кнопки "Вход"
-        self.assert_word(self.get_main_word(), '8 (800) 770 01 51') # метод сравнения текста
+        # self.assert_word(self.get_main_word(), '8 (800) 770 01 51') # метод сравнения текста

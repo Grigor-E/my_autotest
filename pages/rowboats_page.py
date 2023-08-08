@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from base.base_class import Base
 
+
 class Rowboats_page(Base):
 
     def __init__(self, driver):
@@ -11,28 +12,26 @@ class Rowboats_page(Base):
 
     # Locators
 
-    # ЛОКАТОРЫ ПОДЛЕЖАТ ИЗМЕНЕНИЮ
-
-    slider_right = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[1]/div/div[3]/div[1]/div[2]/div/div/div[2]/div[1]" # локатор ползунка правого
-    brand = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[2]/div/div[2]/span/i" # локатор выбора бренда
-    brand_akva = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[2]/div/div[3]/div[1]/div/div/div[1]/label/span" # локатор выбора бренда "Аква"
-    brand_musson = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[2]/div/div[3]/div[1]/div/div/div[3]/label/span" # локатор выбора бренда "Мусон"
-    length = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[4]/div/div[2]/span/i" # локатор выбора длины
-    length_first = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[4]/div/div[3]/div[1]/div/div[2]/div[1]/label/span" # локатор первой по очередности длины
-    length_second = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[4]/div/div[3]/div[1]/div/div[2]/div[2]/label/span"  # локатор второй по очередности длины
-    capacity = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[6]/div/div[2]/span/i" # локатор выбора вместимости
-    capacity_first = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[6]/div/div[3]/div[1]/div/div/div[1]/label/span" # локатор выбора вместимости на одного человека
-    balloon_diameter = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[8]/div/div[2]/span/i"  # локатор выбора диаметра баллона
-    diameter_first = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[8]/div/div[3]/div[1]/div/div[2]/div[1]/label/span" # локатор диаметра баллона первого по очередности
-    diameter_third = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[8]/div/div[3]/div[1]/div/div[2]/div[3]/label/span"  # локатор диаметра баллона третьего по очередности
-    bottom_type = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[10]/div/div[2]/span/i" # локатор выбора типа дна
-    stretch_bottom = "//*[@id='smart_filter_KZ7kps']/div/form/div[1]/div[10]/div/div[3]/div[1]/div/div/div[2]/label/span" # локатор натяжного типа дна
-    show_button = "//*[@id='smart_filter_KZ7kps']/div/form/div[2]/div/div/div/div[2]/button" # локатор кнопки "Показать"
+    slider_right = ".vue-slider-horizontal :nth-child(2) > .vue-slider-dot-handle" # локатор ползунка правого
+    brand = "//*[@class='row']/div[2]//i" # локатор выбора бренда
+    brand_akva = "//*[@class='row']/div[2]//div[1]/label/span" # локатор выбора бренда "Аква"
+    brand_musson = "//*[@class='row']/div[2]//div[3]/label/span" # локатор выбора бренда "Мусон"
+    length = "//*[@class='row']/div[4]//i" # локатор выбора длины
+    length_first = "//*[@class='row']/div[4]//div[1]/label/span" # локатор первой по очередности длины
+    length_second = "//*[@class='row']/div[4]//div[2]/label/span"  # локатор второй по очередности длины
+    capacity = "//*[@class='row']/div[6]//i" # локатор выбора вместимости
+    capacity_first = "//*[@class='row']/div[6]//div[1]/label/span" # локатор выбора вместимости на одного человека
+    balloon_diameter = "//*[@class='row']/div[8]//i"  # локатор выбора диаметра баллона
+    diameter_first = "//*[@class='row']/div[8]//div[1]/label/span" # локатор диаметра баллона первого по очередности
+    diameter_third = "//*[@class='row']/div[8]//div[3]/label/span"  # локатор диаметра баллона третьего по очередности
+    bottom_type = "//*[@class='row']/div[10]//i" # локатор выбора типа дна
+    stretch_bottom = "//*[@class='row']/div[10]//div[2]/label/span" # локатор натяжного типа дна
+    show_button = ".bx-filter-parameters-box-container .btn_primary" # локатор кнопки "Показать"
 
     # Getters
 
     def get_slider_right(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.slider_right)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.slider_right)))
 
     def get_brand(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.brand)))
@@ -74,7 +73,7 @@ class Rowboats_page(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.stretch_bottom)))
 
     def get_show_button(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.show_button)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.show_button)))
 
     # Actions
 
@@ -138,7 +137,7 @@ class Rowboats_page(Base):
 
     def select_filters_rowboats(self):
         self.get_current_url() # метод получения нашего url
-        self.assert_url('https://lodki-volga.ru/Yoshkar-ola/catalog/grebnye_lodki/') # метод сравнения url
+        self.assert_url('https://lodki-volga.ru/catalog/grebnye_lodki/') # метод сравнения url
         self.action_slider_right(self.get_slider_right()) # метод action slider right из класса Base
         self.click_brand() # метод нажатия кнопки выбора бренда
         self.click_brand_akva() # метод нажатия чекбокса выбора бренда "Аква"

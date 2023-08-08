@@ -2,6 +2,7 @@
 # from selenium.webdriver.common.by import By
 # from selenium.webdriver.support import expected_conditions as EC
 # from base.base_class import Base
+
 #
 # class Tourism_page(Base):
 #
@@ -44,5 +45,5 @@
 #     def select_products_3(self):
 #         self.get_current_url() # метод получения нашего url
 #         self.click_select_product_3() # метод нажатия кнопки выбора продукта 3
-#         self.click_link_to_basket()  # метод нажатия ссылки на корзину
+#         self.click_link_to_basket()  # метод нажатия ссылки на страницу корзины
 #         self.click_button_go_to_basket()  # метод нажатия кнопки "Перейти в корзину"

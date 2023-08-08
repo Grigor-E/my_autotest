@@ -13,8 +13,8 @@ class Motorboats_page(Base):
     # Locators
 
     slider_left = ".vue-slider-horizontal :nth-child(1) > .vue-slider-dot-handle" # локатор ползунка левого
-    max_power = "//*[@class='row']/div[8]" # локатор выбора максимальной мощности двигателя
-    power_forty = "//*[@class='row']/div[8]/div[1]/div[3]/div[1]/div/div[2]/div[9]/label/span" # локатор выбора мощности двигателя 40 л.с.
+    max_power = "//*[@class='row']/div[8]//i" # локатор выбора максимальной мощности двигателя
+    power_forty = "//*[@class='row']/div[8]//div[9]/label/span" # локатор выбора мощности двигателя 40 л.с.
     show_button = ".bx-filter-parameters-box-container .btn_primary" # локатор кнопки "Показать"
     short_list = ".short_list.icon"  # выбор показа результата в виде short list icon
 
@@ -57,7 +57,7 @@ class Motorboats_page(Base):
 
     def select_filters_motorboats(self):
         self.get_current_url() # метод получения нашего url
-        self.assert_url('https://lodki-volga.ru/Yoshkar-ola/catalog/motornye_lodki/') # метод сравнения url
+        self.assert_url('https://lodki-volga.ru/catalog/motornye_lodki/') # метод сравнения url
         self.action_slider_left(self.get_slider_left()) # метод action slider left из класса Base
         self.click_max_power() # метод нажатия кнопки выбора раздела максимальной мощности двигателя
         self.click_power_forty() # метод нажатия чекбокса выбора мощности двигателя 40 л.с.
